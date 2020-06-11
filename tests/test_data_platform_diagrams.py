@@ -1,4 +1,4 @@
-from data_platform_diagrams import __version__
+from dpdiagrams import __version__
 
 
 def test_version():
