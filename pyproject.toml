@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "dpdiagrams"
+name = "pdiagrams"
 version = "0.1.0"
-description = "Data Platform architectural diagrams"
+description = "Print Diagrams"
 authors = ["Pedro Sanchez <pedro.sanchez@shopify.com>"]
 
 [tool.poetry.dependencies]
@@ -12,7 +12,7 @@ diagrams = "^0.13.1"
 pytest = "^5.2"
 
 [tool.poetry.scripts]
-dpdiag = "dpdiagrams.diagrams:main"
+pdiag = "pdiagrams.cli:main"
 
 [build-system]
 requires = ["poetry>=0.12"]

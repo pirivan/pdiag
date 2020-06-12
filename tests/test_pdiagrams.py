@@ -1,4 +1,4 @@
-from dpdiagrams import __version__
+from pdiagrams import __version__
 
 
 def test_version():
