@@ -1,8 +1,11 @@
 import os
+import argparse
 from pathlib import Path
 from typing import List
 
 from pdiagrams import __version__ as version
+
+VERSION = f'Print Diagrams v{version}'
 
 
 def find_diagrams_files(paths: List) -> List:
@@ -20,7 +23,11 @@ def find_directories(root: str) -> List:
         for d in p:
             dirs += [x for x in d.iterdir() if x.is_dir()]
         return p + dir_walk(dirs)
-    return dir_walk([Path(root)])
+
+    path = Path(root)
+    if not path.is_dir():
+        raise FileNotFoundError(f'no such directory "{root}"')
+    return dir_walk([path])
 
 
 def print_diagrams(diags: List):
@@ -32,11 +39,30 @@ def print_diagrams(diags: List):
         os.chdir(working_dir)
 
 
+def parse_arguments():
+    parser = argparse.ArgumentParser(prog='pdiagrams',
+                                     description='generate diagram images from diagram source files')
+    parser.add_argument('--version',
+                        action='version',
+                        version=VERSION)
+    parser.add_argument('--root',
+                        required=True,
+                        action='append',
+                        help='top folder to start searching for diagrams to print')
+    return parser.parse_args()
+
+
 def main():
-    print(f'Print Diagrams v{version}')
-    dirs = find_directories('pdiagrams')
-    diags = find_diagrams_files(dirs)
-    print_diagrams(diags)
+    args = parse_arguments()
+    print(VERSION)
+    for root in args.root:
+        try:
+            dirs = find_directories(root)
+        except FileNotFoundError as err:
+            print(f'FileNotFoundError: {err}')
+        else:
+            diags = find_diagrams_files(dirs)
+            print_diagrams(diags)
 
 
 if __name__ == "__main__":
