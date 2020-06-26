@@ -35,6 +35,7 @@ def print_diagrams(diags: List):
     for d in diags:
         fig = d.read_text()
         os.chdir(d.parent)
+        print(d)
         exec(fig)
         os.chdir(working_dir)
 
