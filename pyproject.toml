@@ -11,6 +11,7 @@ diagrams = "^0.13.1"
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 pylint = "^2.5.3"
+diagrams = "^0.13.1"
 
 [tool.poetry.scripts]
 pdiag = "pdiagrams.cli:main"
