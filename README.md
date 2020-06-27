@@ -7,7 +7,7 @@ Download the wheel file of the [latest release](https://github.com/pirivan/pdiag
 and run the following commands (adjust the release number as required):
 
 ```bash
-pip install diagrams pdiagrams-0.1.0-py3-none-any.whl
+pip install diagrams pdiagrams-1.0.0-py3-none-any.whl
 ```
 
 ## Usage

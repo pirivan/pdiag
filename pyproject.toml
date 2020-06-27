@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pdiagrams"
-version = "0.1.0"
+version = "1.0.0"
 description = "Print Diagrams"
 authors = ["Pedro Sanchez <pedro.sanchez@shopify.com>"]
 
